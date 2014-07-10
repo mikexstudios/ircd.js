@@ -1,2 +1,2 @@
-web: node web.js
-socket: bin/ircd.js
+web: ./lib/sockets-connect/rs-conn web.js
+socket: ./lib/sockets-connect/rs-conn bin/ircd.js

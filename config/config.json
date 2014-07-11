@@ -1,0 +1,12 @@
+{ 
+  "network":  "NodeIRC",
+  "hostname": "localhost",
+  "serverDescription": "A Node IRC daemon",
+  "serverName": "s01",
+  "port": 6667,
+  "motd": "Welcome to NodeIRC!",
+  "whoWasLimit": 10000,
+  "token": 1,
+  "pingTimeout": 120,
+  "maxNickLength": 30
+}

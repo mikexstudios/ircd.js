@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var http = false, tcp = false
 if ( process.argv.length > 2 ) {
     process.argv.forEach(function (val, index, array) {

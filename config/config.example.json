@@ -2,10 +2,18 @@
   "hostname": "localhost",
   "serverDescription": "A Node IRC daemon",
   "serverName": "server1",
-  "motd": "Message of the day",
   "port": 6667,
+  "linkPort": 7777,
+  "motd": "Message of the day",
   "whoWasLimit": 10000,
+  "token": 1,
   "opers": {
-    "alex": { "password": "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8" }
-  }
+    "alex": { "password": "$2a$10$T1UJYlinVUGHqfInKSZQz./CHrYIVVqbDO3N1fRNEUvFvSEcshNdC" }
+  },
+  "channels": {
+    "channel1": { "topic": "First Channel" },
+    "channel2": { "topic": "Second Channel" }
+  },
+  "pingTimeout": 120,
+  "maxNickLength": 30
 }

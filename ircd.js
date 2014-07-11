@@ -1,43 +1,15 @@
 #!/usr/bin/env node
+// Start both a simple http server for responding to health checks as well as
+// the IRCd.
 
-var http = false, tcp = false
-if ( process.argv.length > 2 ) {
-    process.argv.forEach(function (val, index, array) {
-        switch(val)
-        {
-            case "http":
-                http = true
-                break;
-            case "tcp":
-                tcp = true
-                break
-        }
-    });
-} else {
-    http = true;
-    tcp = true;
-}
+var http = require('http');
+var http_port = Number(process.env.PORT || 5000);
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World!');
+}).listen(http_port, '127.0.0.1');
+console.log('http server running');
 
-// HTTP stuff
-if ( http ) {
-  var express = require("express");
-  var logfmt = require("logfmt");
-  var app = express();
-  
-  app.use(logfmt.requestLogger());
-  
-  app.get('/', function(req, res) {
-    res.send('Hello World!');
-  });
-  
-  var port = Number(process.env.PORT || 5000);
-  app.listen(port, function() {
-    console.log("Listening on " + port);
-  });
-}
 
-// TCP socket stuff
-if ( tcp ) {
-  var Server = require('./lib/server.js').Server;
-  Server.boot();
-}
+var server = require('./lib/server.js').Server;
+server.boot();
